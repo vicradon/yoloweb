@@ -9,251 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --geist-background-1: #ffffff;
-        --geist-background-2: #fafafa;
-        --geist-gray-1: #fafafa;
-        --geist-gray-2: #bdbdbd;  
-        --geist-gray-3: #a9a9a9;  
-        --geist-gray-4: #888888;
-        --geist-gray-5: #666666;
-        --geist-gray-6: #444444;
-        --geist-gray-7: #333333;
-        --geist-gray-8: #1a1a1a;
-        --geist-gray-9: #111111;
-        --geist-gray-10: #000000;
-        --geist-blue-9: #0070f3;
-        --geist-blue-10: #0761d1;
-        --geist-green-9: #00a86b;
-        --geist-red-9: #e00;
-        --geist-amber-9: #f5a623;
-      }
-
-      html.dark {
-        --geist-background-1: #0a0a0a;
-        --geist-background-2: #111111;
-        --geist-gray-1: #111111;
-        --geist-gray-2: #3c3c3c;
-        --geist-gray-3: #4a4a4a;
-        --geist-gray-4: #9e9e9e; 
-        --geist-gray-5: #e5e5e5; 
-        --geist-gray-6: #7e7e7e;
-        --geist-gray-7: #9e9e9e;
-        --geist-gray-8: #e5e5e5;
-        --geist-gray-9: #eeeeee;
-        --geist-gray-10: #ffffff;
-        color-scheme: dark;
-      }
-
-      html.dark .geist-card {
-        box-shadow: 0 0 0 1px var(--geist-gray-3),
-          0 4px 12px rgba(255, 255, 255, 0.03);
-      }
-
-      * {
-        font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-          "Helvetica Neue", sans-serif;
-      }
-
-      body {
-        background-color: var(--geist-background-2);
-        color: var(--geist-gray-10);
-      }
-
-      .geist-card {
-        background-color: var(--geist-background-2);
-        border: 2px solid var(--geist-gray-2);
-        border-radius: 8px;
-        transition: all 0.15s ease;
-      }
-
-      .geist-card:hover {
-        border-color: var(--geist-gray-3);
-        transform: translateY(-1px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-      }
-
-      .geist-button {
-        background-color: var(--geist-gray-10);
-        color: var(--geist-background-2);
-        border: 2px solid var(--geist-gray-10);
-        border-radius: 6px;
-        padding: 12px 24px;
-        font-weight: 500;
-        font-size: 14px;
-        transition: all 0.15s ease;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .geist-button:hover {
-        background-color: var(--geist-gray-9);
-        border-color: var(--geist-gray-9);
-      }
-
-      .geist-button:active {
-        background-color: var(--geist-gray-8);
-        border-color: var(--geist-gray-8);
-      }
-
-      .geist-button:disabled {
-        background-color: var(--geist-gray-2);
-        border-color: var(--geist-gray-2);
-        color: var(--geist-gray-5);
-        cursor: not-allowed;
-      }
-
-      .geist-button:disabled:hover {
-        background-color: var(--geist-gray-2);
-        border-color: var(--geist-gray-2);
-        transform: none;
-      }
-
-      .geist-input {
-        background-color: var(--geist-background-2);
-        border: 1px solid var(--geist-gray-2);
-        border-radius: 6px;
-        padding: 12px 16px;
-        font-size: 14px;
-        transition: all 0.15s ease;
-      }
-
-      .geist-input:focus {
-        border-color: var(--geist-blue-9);
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
-      }
-
-      .upload-area {
-        background-color: var(--geist-background-2);
-        border: 2px dashed var(--geist-gray-2);
-        border-radius: 8px;
-        transition: all 0.15s ease;
-      }
-
-      .upload-area:hover {
-        border-color: var(--geist-gray-3);
-        background-color: var(--geist-gray-1);
-      }
-
-      .upload-area.drag-over {
-        border-color: var(--geist-blue-9);
-        background-color: rgba(0, 112, 243, 0.05);
-      }
-
-      .status-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        flex-shrink: 0;
-      }
-
-      .status-ready {
-        background-color: var(--geist-gray-4);
-      }
-      .status-loaded {
-        background-color: var(--geist-green-9);
-      }
-      .status-processing {
-        background-color: var(--geist-blue-9);
-        animation: pulse 2s infinite;
-      }
-      .status-error {
-        background-color: var(--geist-red-9);
-      }
-      .status-complete {
-        background-color: var(--geist-green-9);
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-      }
-
-      .loading-spinner {
-        border: 2px solid var(--geist-gray-2);
-        border-top: 2px solid var(--geist-background-2);
-        border-radius: 50%;
-        width: 16px;
-        height: 16px;
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      .text-geist-primary {
-        color: var(--geist-gray-10);
-      }
-      .text-geist-secondary {
-        color: var(--geist-gray-5);
-      }
-      .text-geist-muted {
-        color: var(--geist-gray-4);
-      }
-
-      .code-block {
-        background-color: var(--geist-gray-1);
-        border: 1px solid var(--geist-gray-2);
-        border-radius: 6px;
-        padding: 16px;
-        font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono",
-          monospace;
-        font-size: 13px;
-        line-height: 1.4;
-        overflow-x: auto;
-        white-space: pre;
-      }
-
-      .fade-in {
-        animation: fadeIn 0.3s ease-in-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(4px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (prefers-color-scheme: light) {
-        .geist-card {
-          background-color: var(--geist-background-2);
-          border-color: var(--geist-gray-2);
-          box-shadow: 0 0 0 1px var(--geist-gray-2);
-        }
-
-        .geist-card:hover {
-          border-color: var(--geist-gray-3);
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .code-block {
-          background-color: var(--geist-gray-1);
-          border-color: var(--geist-gray-2);
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
+  
   </head>
   <body class="min-h-screen">
     <div class="min-h-screen py-8 px-4">
@@ -269,6 +26,8 @@
           >
         </button>
       </div>
+
+      <canvas id="mycanvas"></canvas>
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <h1 class="text-4xl font-semibold text-geist-primary mb-3">
@@ -400,7 +159,33 @@
                     Detection results will appear here
                   </p>
                 </div>
-                <div id="output" class="code-block hidden"></div>
+
+                <!-- Canvas Results -->
+                <div id="canvasResults" class="hidden">
+                  <div class="canvas-container">
+                    <img id="resultImage" src="" alt="Result" />
+                    <canvas id="resultCanvas"></canvas>
+                  </div>
+                  <div id="detectionInfo" class="detection-info">
+                    <div class="text-sm font-medium text-geist-primary mb-2">
+                      Detections:
+                    </div>
+                    <div id="detectionList"></div>
+                  </div>
+                </div>
+
+                <!-- JSON Output -->
+                <div id="jsonOutput" class="hidden">
+                  <div class="mb-3">
+                    <button
+                      id="toggleView"
+                      class="text-sm text-geist-blue-9 hover:underline"
+                    >
+                      Show JSON
+                    </button>
+                  </div>
+                  <div id="output" class="code-block"></div>
+                </div>
               </div>
             </div>
 
@@ -437,7 +222,7 @@
                     3
                   </div>
                   <p class="text-sm text-geist-secondary">
-                    View the detection results in JSON format
+                    View the detection results with bounding boxes
                   </p>
                 </div>
               </div>
@@ -447,183 +232,6 @@
       </div>
     </div>
 
-    <script>
-      const imageInput = document.getElementById("imageInput");
-      const preview = document.getElementById("preview");
-      const detectBtn = document.getElementById("detectBtn");
-      const output = document.getElementById("output");
-      const outputContainer = document.getElementById("outputContainer");
-      const emptyState = document.getElementById("emptyState");
-      const uploadArea = document.getElementById("uploadArea");
-      const previewContainer = document.getElementById("previewContainer");
-      const removeImage = document.getElementById("removeImage");
-      const statusIndicator = document.getElementById("statusIndicator");
-      const btnText = document.getElementById("btnText");
-      const loadingSpinner = document.getElementById("loadingSpinner");
-
-      let imageBitmap;
-      let isProcessing = false;
-
-      const worker = new Worker("worker.js");
-
-      // Update status
-      function updateStatus(text, type = "ready") {
-        const dot = statusIndicator.querySelector(".status-dot");
-        const span = statusIndicator.querySelector("span");
-
-        // Remove all status classes
-        dot.className = "status-dot";
-        dot.classList.add(`status-${type}`);
-        span.textContent = text;
-      }
-
-      // Handle file upload
-      function handleFileUpload(file) {
-        if (!file) return;
-
-        if (file.size > 10 * 1024 * 1024) {
-          alert("File size must be less than 10MB");
-          return;
-        }
-
-        const url = URL.createObjectURL(file);
-        preview.src = url;
-        previewContainer.classList.remove("hidden");
-        detectBtn.disabled = false;
-
-        createImageBitmap(file)
-          .then((bitmap) => {
-            imageBitmap = bitmap;
-            updateStatus("Image loaded", "loaded");
-          })
-          .catch((err) => {
-            console.error("Error creating image bitmap:", err);
-            updateStatus("Error loading image", "error");
-          });
-      }
-
-      // Event listeners
-      uploadArea.addEventListener("click", () => imageInput.click());
-
-      imageInput.addEventListener("change", (e) => {
-        handleFileUpload(e.target.files[0]);
-      });
-
-      // Drag and drop
-      uploadArea.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        uploadArea.classList.add("drag-over");
-      });
-
-      uploadArea.addEventListener("dragleave", () => {
-        uploadArea.classList.remove("drag-over");
-      });
-
-      uploadArea.addEventListener("drop", (e) => {
-        e.preventDefault();
-        uploadArea.classList.remove("drag-over");
-        const file = e.dataTransfer.files[0];
-        if (file && file.type.startsWith("image/")) {
-          handleFileUpload(file);
-        }
-      });
-
-      // Remove image
-      removeImage.addEventListener("click", () => {
-        preview.src = "";
-        previewContainer.classList.add("hidden");
-        detectBtn.disabled = true;
-        imageBitmap = null;
-        imageInput.value = "";
-        updateStatus("Ready", "ready");
-
-        // Reset output
-        output.classList.add("hidden");
-        emptyState.classList.remove("hidden");
-      });
-
-      // Detect button
-      detectBtn.addEventListener("click", async () => {
-        if (!imageBitmap || isProcessing) return;
-
-        isProcessing = true;
-        detectBtn.disabled = true;
-        btnText.textContent = "Processing...";
-        loadingSpinner.classList.remove("hidden");
-
-        updateStatus("Processing...", "processing");
-
-        try {
-          const canvas = new OffscreenCanvas(640, 640);
-          const ctx = canvas.getContext("2d");
-          ctx.drawImage(imageBitmap, 0, 0, 640, 640);
-          const imageData = ctx.getImageData(0, 0, 640, 640);
-
-          worker.postMessage({ type: "runModel", imageData }, [
-            imageData.data.buffer,
-          ]);
-        } catch (error) {
-          console.error("Error processing image:", error);
-          updateStatus("Processing failed", "error");
-          resetButton();
-        }
-      });
-
-      // Reset button state
-      function resetButton() {
-        isProcessing = false;
-        detectBtn.disabled = false;
-        btnText.textContent = "Detect Masked Armed Bandits";
-        loadingSpinner.classList.add("hidden");
-      }
-
-      // Worker messages
-      worker.onmessage = (e) => {
-        resetButton();
-
-        if (e.data.type === "result") {
-          updateStatus("Detection complete", "complete");
-          emptyState.classList.add("hidden");
-          output.classList.remove("hidden");
-          output.classList.add("fade-in");
-          output.textContent = JSON.stringify(e.data.output, null, 2);
-        } else if (e.data.type === "error") {
-          updateStatus("Detection failed", "error");
-          emptyState.classList.add("hidden");
-          output.classList.remove("hidden");
-          output.classList.add("fade-in");
-          output.textContent = `Error: ${e.data.error}`;
-        }
-      };
-
-      // Initialize
-      updateStatus("Ready", "ready");
-
-      const themeToggle = document.getElementById("themeToggle");
-      const themeIcon = document.getElementById("themeIcon");
-      const html = document.documentElement;
-
-      function setTheme(theme) {
-        if (theme === "dark") {
-          html.classList.add("dark");
-          themeIcon.textContent = "☀️";
-        } else {
-          html.classList.remove("dark");
-          themeIcon.textContent = "🌙";
-        }
-        localStorage.setItem("theme", theme);
-      }
-
-      function toggleTheme() {
-        const isDark = html.classList.contains("dark");
-        setTheme(isDark ? "light" : "dark");
-      }
-
-      themeToggle.addEventListener("click", toggleTheme);
-
-      // Apply saved theme on load
-      const savedTheme = localStorage.getItem("theme") || "light";
-      setTheme(savedTheme);
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>

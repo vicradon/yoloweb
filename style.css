@@ -1,0 +1,292 @@
+:root {
+  --geist-background-1: #ffffff;
+  --geist-background-2: #fafafa;
+  --geist-gray-1: #fafafa;
+  --geist-gray-2: #bdbdbd;
+  --geist-gray-3: #a9a9a9;
+  --geist-gray-4: #888888;
+  --geist-gray-5: #666666;
+  --geist-gray-6: #444444;
+  --geist-gray-7: #333333;
+  --geist-gray-8: #1a1a1a;
+  --geist-gray-9: #111111;
+  --geist-gray-10: #000000;
+  --geist-blue-9: #0070f3;
+  --geist-blue-10: #0761d1;
+  --geist-green-9: #00a86b;
+  --geist-red-9: #e00;
+  --geist-amber-9: #f5a623;
+}
+
+html.dark {
+  --geist-background-1: #0a0a0a;
+  --geist-background-2: #111111;
+  --geist-gray-1: #111111;
+  --geist-gray-2: #3c3c3c;
+  --geist-gray-3: #4a4a4a;
+  --geist-gray-4: #9e9e9e;
+  --geist-gray-5: #e5e5e5;
+  --geist-gray-6: #7e7e7e;
+  --geist-gray-7: #9e9e9e;
+  --geist-gray-8: #e5e5e5;
+  --geist-gray-9: #eeeeee;
+  --geist-gray-10: #ffffff;
+  color-scheme: dark;
+}
+
+html.dark .geist-card {
+  box-shadow: 0 0 0 1px var(--geist-gray-3),
+    0 4px 12px rgba(255, 255, 255, 0.03);
+}
+
+* {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: var(--geist-background-2);
+  color: var(--geist-gray-10);
+}
+
+.geist-card {
+  background-color: var(--geist-background-2);
+  border: 2px solid var(--geist-gray-2);
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.geist-card:hover {
+  border-color: var(--geist-gray-3);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.geist-button {
+  background-color: var(--geist-gray-10);
+  color: var(--geist-background-2);
+  border: 2px solid var(--geist-gray-10);
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.geist-button:hover {
+  background-color: var(--geist-gray-9);
+  border-color: var(--geist-gray-9);
+}
+
+.geist-button:active {
+  background-color: var(--geist-gray-8);
+  border-color: var(--geist-gray-8);
+}
+
+.geist-button:disabled {
+  background-color: var(--geist-gray-2);
+  border-color: var(--geist-gray-2);
+  color: var(--geist-gray-5);
+  cursor: not-allowed;
+}
+
+.geist-button:disabled:hover {
+  background-color: var(--geist-gray-2);
+  border-color: var(--geist-gray-2);
+  transform: none;
+}
+
+.geist-input {
+  background-color: var(--geist-background-2);
+  border: 1px solid var(--geist-gray-2);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+
+.geist-input:focus {
+  border-color: var(--geist-blue-9);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+}
+
+.upload-area {
+  background-color: var(--geist-background-2);
+  border: 2px dashed var(--geist-gray-2);
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.upload-area:hover {
+  border-color: var(--geist-gray-3);
+  background-color: var(--geist-gray-1);
+}
+
+.upload-area.drag-over {
+  border-color: var(--geist-blue-9);
+  background-color: rgba(0, 112, 243, 0.05);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-ready {
+  background-color: var(--geist-gray-4);
+}
+.status-loaded {
+  background-color: var(--geist-green-9);
+}
+.status-processing {
+  background-color: var(--geist-blue-9);
+  animation: pulse 2s infinite;
+}
+.status-error {
+  background-color: var(--geist-red-9);
+}
+.status-complete {
+  background-color: var(--geist-green-9);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-spinner {
+  border: 2px solid var(--geist-gray-2);
+  border-top: 2px solid var(--geist-background-2);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.text-geist-primary {
+  color: var(--geist-gray-10);
+}
+.text-geist-secondary {
+  color: var(--geist-gray-5);
+}
+.text-geist-muted {
+  color: var(--geist-gray-4);
+}
+
+.code-block {
+  background-color: var(--geist-gray-1);
+  border: 1px solid var(--geist-gray-2);
+  border-radius: 6px;
+  padding: 16px;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono",
+    monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-x: auto;
+  white-space: pre;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Canvas container styles */
+.canvas-container {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.canvas-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.canvas-container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.detection-info {
+  background-color: var(--geist-background-1);
+  border: 1px solid var(--geist-gray-2);
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.detection-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--geist-gray-2);
+}
+
+.detection-item:last-child {
+  border-bottom: none;
+}
+
+.detection-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .geist-card {
+    background-color: var(--geist-background-2);
+    border-color: var(--geist-gray-2);
+    box-shadow: 0 0 0 1px var(--geist-gray-2);
+  }
+
+  .geist-card:hover {
+    border-color: var(--geist-gray-3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .code-block {
+    background-color: var(--geist-gray-1);
+    border-color: var(--geist-gray-2);
+  }
+}
